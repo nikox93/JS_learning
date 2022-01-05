@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Внутренняя тень</title>
+<meta charset="windows-1251" />
+<style>
+td {
+	padding: 10px;
+	}
+#main1 {
+	box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.5);
+	border-radius: 10px;
+}
+#main2 {
+	box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.5);
+	border-radius: 10px;
+}
+#main3 {
+	box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.5);
+	border-radius: 10px;
+}
+#main4 {
+	box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.5);
+	border-radius: 10px;
+}
+a {
+	text-decoration:none;
+	padding: 5px;
+}
+</style>
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<table border="0">
+<tr>
+<td id="main1" onMouseOver="appear1()" onMouseOut="disappear1()" >
+<a href="test1.html">Главная</a>
+</td>
+<td id="main2" onMouseOver="appear2()" onMouseOut="disappear2()">
+<a href="test2.html">Каталог</a></td>
+<td id="main3" onMouseOver="appear3()" onMouseOut="disappear3()">Фотографии</td>
+<td id="main4" onMouseOver="appear4()" onMouseOut="disappear4()">Разное</td>
+</table>
+</body>
+</html>

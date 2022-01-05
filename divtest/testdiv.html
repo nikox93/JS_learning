@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta charset="windows-1251">
+<title>Тест с div</title>
+<style>
+#test{
+	opacity:0;
+	padding:20px; /* внутри слоя */
+	margin:20px;  /* снаружи слоя */
+	width:250px;
+	height:200px;
+	background:url(bg1.jpg);
+	/* текст в слое */
+	text-shadow:1px 1px 1px #FFFFFF);	
+}
+</style>
+<script type="text/javascript">
+var t,t2,op;
+//Функция появления 
+function appear(x) {
+op = Number(document.getElementById("test").style.opacity);
+if(op <= x) {
+clearTimeout(t2);
+op += 0.05;
+document.getElementById("test").style.opacity = op;
+t=setTimeout('appear('+x+')',20);
+}
+}
+//Функция исчезновения
+function disappear(x) {
+op = Number(document.getElementById("test").style.opacity);
+if(op >= x) {
+clearTimeout(t);
+op -= 0.05;
+document.getElementById("test").style.opacity = op;
+t2 = setTimeout('disappear('+x+')',20);
+}
+}
+</script>
+</head>
+<body>
+<a href = "#" onMouseOver="appear(1)" onMouseOut="disappear(0)">Показать слой div</a>
+<div id="test">
+Тест слоя div
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta charset="windows-1251">
+<title>Тест с div</title>
+<style>
+#test{
+	position: relative; /* относительное положение */
+	opacity:0;
+	padding:30px; /* внутри слоя */
+	margin:20px;  /* снаружи слоя */
+	width:275px;
+	height:250px;
+	background-color:#CCCCCC;
+}
+#link{
+	position: absolute;
+    bottom: 10px; right: 10px; /* правый нижний угол */
+    padding: 10px; /* Поля вокруг текста */
+}
+</style>
+<script type="text/javascript">
+var t,t2,op;
+//Функция появления 
+function appear(x) {
+op = +document.getElementById("test").style.opacity;
+if(op < x) {
+clearTimeout(t2);
+op += 0.025;
+document.getElementById("test").style.opacity = op;
+t=setTimeout('appear('+x+')',25);
+}
+}
+//Функция исчезновения
+function disappear(x) {
+op = document.getElementById("test").style.opacity;
+if(op > x) {
+clearTimeout(t);
+op -= 0.025;
+document.getElementById("test").style.opacity = op;
+t2 = setTimeout('disappear('+x+')',25);
+}
+}
+</script>
+</head>
+<body>
+<a href = "#" onClick="appear(1)">Показать слой div</a>
+<div id="test">
+Текст в слое div
+<div id = "link">
+<a href="#" onClick="disappear(0)">Скрыть слой</a>
+</div>
+</div>
+</body>
+</html>

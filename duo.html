@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<META content=text/html; charset=windows-1251 http-equiv=Content-Type>
+<script type="text/javascript">
+//Функция расчёта
+function calculate(){
+// первый способ получения данных из формы ввода
+var a = Number(document.getElementById("a").value), 
+// второй способ получения данных из формы ввода
+	b = +document.f.b.value, 
+	c = +document.f.c.value;
+if((isNaN(a) == true)||(a == "")) 
+{
+	alert("Введите число A!");
+	clear();
+}
+if(isNaN(b) == true) alert("Введите число B!");
+if(isNaN(c) == true) alert("Введите число C!");
+//вычисление дискриминанта
+var d = Math.pow(b,2) - 4*a*c;
+//проверка дискриминанта
+if(d == 0) {
+//отчистка контейнера div
+var res = document.getElementById("res");
+res.innerHTML = null;
+//рассчет корня
+var x1 = (-b)/(2*a);
+document.f.x1.value = x1;
+//отчистка x2
+document.f.x2.value = null; 
+}
+else if(d > 0) {
+var res = document.getElementById("res");
+res.innerHTML = null;
+var x1 = (-b + Math.sqrt(d))/(2*a);
+var x2 = (-b - Math.sqrt(d))/(2*a);
+document.f.x1.value = x1; 
+document.f.x2.value = x2; 
+}
+else if(d < 0) {
+//Отчистка x1 и x2
+document.f.x1.value = null; 
+document.f.x2.value = null;
+//Вывод результата
+var res = document.getElementById("res");
+res.innerHTML = "Нет решения!";
+}
+}
+//Функция отчистки форм ввода и вывода
+function clear(){
+var res = document.getElementById("res");
+res.innerHTML = null;
+document.f.x1.value = null; 
+document.f.x2.value = null;
+}
+</script>
+<TITLE>Расчет квадратного уравнения</TITLE>
+</HEAD>
+<BODY>
+Программа для решения квадратного уравнения <i>ax<sup>2</sup>+bx+c</i>
+<br>
+<FORM NAME=f>
+<font face="Times New Roman, Times, serif">Входная информация</font>
+<br/><font face="Times New Roman, Times, serif">a = </font>
+<INPUT NAME="a" TYPE="text" id="a">
+<br/><font face="Times New Roman, Times, serif">b = </font>
+<INPUT NAME="b" TYPE="text">
+<br/><font face="Times New Roman, Times, serif">c = </font>
+<INPUT NAME="c" TYPE="text">
+<br/>
+<br/>
+<INPUT onclick="calculate()" TYPE="button" VALUE="Посчитать">
+<br/>
+<br/>
+<font face="Times New Roman, Times, serif">Результат:</font>
+<br/>
+<font face="Times New Roman, Times, serif">x1 = </font>
+<INPUT NAME="x1" TYPE="text" readonly>
+<br>
+<font face="Times New Roman, Times, serif">x2 = </font>
+<INPUT NAME="x2" TYPE="text" readonly>
+<div id="res"></div>
+<br>
+<Input type="submit" value="Сброс ввода и результата" onClick="Clear()" />
+</FORM>
+</BODY>
+</HTML>
